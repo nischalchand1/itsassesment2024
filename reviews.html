@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('gallery5.jpg');
+            background-size: cover;
+        }
+
+        .review-container {
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            max-width: 80%;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .review {
+            display: none;
+        }
+
+        .review.active {
+            display: block;
+        }
+
+        .review img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .navigation {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .navigation button {
+    background-color: black; /* Set the background color to black */
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+        .navigation button:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="map.html">Map</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="review-container">
+        <div class="review active">
+            <img src="profile1.jpg" alt="Profile Picture">
+            <p>Furniture Internet in Kathmandu is exceptional! Their furniture restoration services are top-notch, and the staff is friendly and professional. I was impressed by their attention to detail and quality work. Thank you, Furniture Internet, for making my furniture look brand new!</p>
+        </div>
+        <div class="review">
+            <img src="profile2.jpg" alt="Profile Picture">
+            <p>Furniture Internet did an amazing job restoring my old furniture! Their attention to detail and craftsmanship were exceptional. The staff was friendly and provided excellent customer service. I highly recommend them to anyone in need of furniture restoration. Thank you, Furniture Internet!</p>
+        </div>
+        <div class="review">
+            <img src="profile3.jpg" alt="Profile Picture">
+            <p>Furniture Internet exceeded my expectations! Their furniture restoration services are top-notch and the staff is incredibly skilled. Thank you for restoring my furniture beautifully. I highly recommend Furniture Internet to anyone in need of restoration services.</p>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="prev-btn">&larr;</button>
+        <button class="next-btn">&rarr;</button>
+    </div>
+
+    <script>
+        const reviews = document.querySelectorAll('.review');
+        let currentIndex = 0;
+
+        function showReview(index) {
+            reviews.forEach((review, i) => {
+                if (i === index) {
+                    review.classList.add('active');
+                } else {
+                    review.classList.remove('active');
+                }
+            });
+        }
+
+        document.querySelector('.next-btn').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % reviews.length;
+            showReview(currentIndex);
+        });
+
+        document.querySelector('.prev-btn').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+            showReview(currentIndex);
+        });
+
+        showReview(currentIndex);
+    </script>
+</body>
+</html>

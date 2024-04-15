@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.image-container {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    white-space: nowrap; 
+}
+
+.image-container img {
+    width: 100%; 
+    height: auto; 
+    display: inline-block; 
+    vertical-align: top; 
+    opacity: 0.7;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+    padding: 20px;
+    font-family: "Times New Roman", Times, serif;
+}
+.overlay-text h1,
+.overlay-text p {
+    position: relative;
+    display: inline-block;
+    border: 2px solid transparent;
+    padding: 10px;
+    margin: 0;
+}
+
+.overlay-text h1::after,
+.overlay-text p::after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+    z-index: -1;
+}
+
+.overlay-text h1:hover::after,
+.overlay-text p:hover::after {
+    border-color: #ffcc00;
+}
+
+.overlay-text h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.overlay-text p {
+    font-size: 20px;
+} 
+.navbar {
+    background-color: transparent;
+    overflow: hidden;
+    text-align: left;
+    padding: 10px;
+    z-index: 2;
+    position: absolute;
+    top: 120px; 
+    left: 0;
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 17px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
